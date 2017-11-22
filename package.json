@@ -1,9 +1,13 @@
 {
     "name": "frontendious-cli",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "",
     "main": "index.js",
     "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vsimonovski/frontendious-cli.git"
+    },
     "prettier": {
         "tabWidth": 4,
         "singleQuote": true

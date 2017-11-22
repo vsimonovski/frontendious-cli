@@ -40,10 +40,12 @@ console.log(chalk`       {bold.hex('#7CE9FB') cd ${targetValue} }`);
 console.log(
     chalk`       {bold.hex('#7CE9FB') yarn install (install client-side dependencies) }`
 );
-console.log(chalk`       {bold.hex('#7CE9FB') cd ${targetValue}/server }`);
-console.log(
-    chalk`       {bold.hex('#7CE9FB') yarn install (install server-side dependencies) }`
-);
+if (commander.addserver) {
+    console.log(chalk`       {bold.hex('#7CE9FB') cd ${targetValue}/server }`);
+    console.log(
+        chalk`       {bold.hex('#7CE9FB') yarn install (install server-side dependencies) }`
+    );
+}
 console.log('');
 console.log(
     chalk`       More details: https://www.npmjs.com/package/frontendious-cli#build-setup`
