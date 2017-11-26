@@ -6,10 +6,7 @@
     "author": "Vladimir Simonovski",
     "license": "MIT",
     "private": true,
-    "prettier": {
-        "tabWidth": 4,
-        "singleQuote": true
-    },
+
     "scripts": {
         "build": "NODE_ENV=prod webpack --config webpack.prod.js",
         "dev": "NODE_ENV=dev webpack-dev-server --open --config webpack.dev.js"

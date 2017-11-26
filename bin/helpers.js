@@ -13,11 +13,19 @@ class Helpers {
         oraInstance = ora(chalk` {green.bold ${msg} }`).start();
     }
 
-    setDirectory(targetDir) {
-        this.successMsg('Creating directory', targetDir);
-        shell.exec(`mkdir ${targetDir}`);
+    infoMsg(msg, targetDir = '') {
+        oraInstance = ora(chalk` {blue.bold ${msg} }`).start();
+    }
 
-        oraInstance.succeed();
+    setDirectory(targetDir) {
+        if (!fs.existsSync(`${targetDir}`)) {
+            this.successMsg('Creating directory', targetDir);
+            shell.exec(`mkdir ${targetDir}`);
+            oraInstance.succeed();
+        } else {
+            this.infoMsg('Directory already exists', targetDir);
+            oraInstance.succeed();
+        }
     }
 
     setBoilerplateFiles(targetDir) {
@@ -25,18 +33,22 @@ class Helpers {
     }
 
     setServer(targetDir) {
-        this.successMsg('Adding server...');
-        shell.exec(`mkdir ${targetDir}/server`);
-        shell.exec(`cp -R ${__dirname}/server/. ${targetDir}/server/`);
+        if (!fs.existsSync(`${targetDir}/server`)) {
+            this.successMsg('Adding server...');
+            shell.exec(`mkdir ${targetDir}/server`);
+            shell.exec(`cp -R ${__dirname}/server/. ${targetDir}/server/`);
 
-        fs
-            .readFileAsync(`${targetDir}/server/webpack.dev.js`, 'utf-8')
-            .then(content => {
-                shell.exec(`echo "${content}" > ${targetDir}/webpack.dev.js`);
-                shell.exec(`rm -rf ${targetDir}/server/webpack.dev.js`);
-            });
+            fs
+                .readFileAsync(`${targetDir}/server/webpack.dev.js`, 'utf-8')
+                .then(content => {
+                    shell.exec(
+                        `echo "${content}" > ${targetDir}/webpack.dev.js`
+                    );
+                    shell.exec(`rm -rf ${targetDir}/server/webpack.dev.js`);
+                });
 
-        oraInstance.succeed();
+            oraInstance.succeed();
+        }
     }
 
     setReact(targetDir) {
@@ -65,5 +77,6 @@ module.exports = {
     setBoilerplateFiles: helpers.setBoilerplateFiles,
     setServer: helpers.setServer,
     setReact: helpers.setReact,
-    successMsg: helpers.successMsg
+    successMsg: helpers.successMsg,
+    infoMsg: helpers.infoMsg
 };

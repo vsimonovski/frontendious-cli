@@ -17,7 +17,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(paths.SRC, 'index.html'),
-            title: 'webpack starter'
+            title: 'frontendious-cli'
         }),
         new ExtractTextPlugin('style.bundle.css')
     ],

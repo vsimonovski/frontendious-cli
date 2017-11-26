@@ -18,6 +18,44 @@ by webpack and npm scripts.
 * ⚡ connected with express(node.js) [optional]
 * ⚛️ react support [optional]
 
+## Usage
+
+```bash
+frontendious <dir_name> # generate basic boilerplate
+# or
+frontendious <dir_name> -s # generate basic boilerplate with express server support
+# or
+frontendious <dir_name> -r # generate basic boilerplate with react support
+# you can also combine commands like this
+frontendious <dir_name> -s -r
+# to see help send -h option
+frontendious -h
+```
+
+## Build Setup
+
+```bash
+# generate project
+frontendious <dir_name> [...options]
+
+# install server-side depenedcies
+cd <dir_name>/server
+yarn install
+
+# start server at localhost:3001, configurable at server/index.js
+yarn start
+
+# go back to <dir_name>
+# install client-side dependencies
+yarn install
+
+# serve with hot reload at localhost:3000, configurable at webpack.dev.js
+yarn dev
+
+# build for production @ dist/ folder
+yarn build
+```
+
 ## Project structure
 
 ```bash
@@ -32,6 +70,7 @@ src/
 |-- scss/ # place scss here
 |-- index.html # root index.html page
 .babelrc # babel config
+.prettierrc # prettier config
 .gitignore
 package.json # client dependencies
 postcss.config.js # postcss config
@@ -63,27 +102,3 @@ background: url('../../assets/mypicture.png'); 👎
 css-loader will
 [ignore path starting with /](https://github.com/webpack-contrib/css-loader#root),
 to prevent that behaviour add option "root: '.'"
-
-## Build Setup
-
-```bash
-# generate project
-frontendious <dir_name> [...options]
-
-# install server-side depenedcies
-cd <dir_name>/server
-yarn install
-
-# start server at localhost:3001, configurable at server/index.js
-yarn start
-
-# go back to <dir_name>
-# install client-side dependencies
-yarn install
-
-# serve with hot reload at localhost:3000, configurable at webpack.dev.js
-yarn dev
-
-# build for production @ dist/ folder
-yarn build
-```

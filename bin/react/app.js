@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './css_modules';
 
-class Home extends Component {
+class App extends Component {
     render() {
-        return <div>hello</div>;
+        return <div>helllo world</div>;
     }
 }
 
-render(<Home />, document.getElementById('app'));
+render(<App />, document.getElementById('app'));
