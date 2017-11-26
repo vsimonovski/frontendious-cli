@@ -21,6 +21,8 @@ by webpack and npm scripts.
 ## Usage
 
 ```bash
+npm install frontendious-cli -g # install frontendious globally
+
 frontendious <dir_name> # generate basic boilerplate
 # or
 frontendious <dir_name> -s # generate basic boilerplate with express server support
