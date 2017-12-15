@@ -9,7 +9,8 @@
 
     "scripts": {
         "build": "NODE_ENV=prod webpack --config webpack.prod.js",
-        "dev": "NODE_ENV=dev webpack-dev-server --open --config webpack.dev.js"
+        "dev": "NODE_ENV=dev webpack-dev-server --open --config webpack.dev.js",
+        "test": "jest"
     },
     "dependencies": {
         "autoprefixer": "^7.1.6",
@@ -36,5 +37,8 @@
     },
     "resolutions": {
         "webpack-sources": "1.0.1"
+    },
+    "devDependencies": {
+        "jest": "^21.2.1"
     }
 }
