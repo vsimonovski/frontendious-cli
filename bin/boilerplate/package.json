@@ -6,7 +6,6 @@
     "author": "Vladimir Simonovski",
     "license": "MIT",
     "private": true,
-
     "scripts": {
         "build": "NODE_ENV=prod webpack --config webpack.prod.js",
         "dev": "NODE_ENV=dev webpack-dev-server --open --config webpack.dev.js",
@@ -20,7 +19,7 @@
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "babel-preset-env": "^1.6.1",
         "clean-webpack-plugin": "^0.1.17",
-        "css-loader": "^0.28.7",
+        "css-loader": "^2.1.1",
         "extract-text-webpack-plugin": "^3.0.2",
         "file-loader": "^1.1.5",
         "html-webpack-plugin": "^2.30.1",
