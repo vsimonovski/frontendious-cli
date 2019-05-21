@@ -30,18 +30,22 @@ module.exports = {
             },
             {
                 test: /\.s?css$/,
-                loader: [
-                    {
-                        loader: 'style-loader' // creates style nodes from JS strings
-                    },
-                    {
-                        loader: 'css-loader' // translates CSS into CommonJS
-                    },
-                    { loader: 'postcss-loader' },
-                    {
-                        loader: 'sass-loader' // compiles Sass to CSS
-                    }
-                ]
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize:
+                                    process.env.NODE_ENV === 'dev'
+                                        ? false
+                                        : true
+                            }
+                        },
+                        'postcss-loader',
+                        'sass-loader'
+                    ]
+                })
             }
         ]
     },
